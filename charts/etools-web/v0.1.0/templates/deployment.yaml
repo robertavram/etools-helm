@@ -1,8 +1,7 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: {{ template "fullname" . }}
-  namespace: {{ .Values.namespace}}
   labels:
     app.kubernetes.io/name: {{ include "etools.name" . }}
     helm.sh/chart: {{ include "etools.chart" . }}
@@ -36,7 +35,7 @@ spec:
       {{- end}}
       {{- end }}
       containers:
-        name: {{ template "fullname" . }}
+      - name: {{ template "fullname" . }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         ports:
