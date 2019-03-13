@@ -1,20 +1,24 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ include "name" . }}
   labels:
-    app.kubernetes.io/name: {{ include "etools.name" . }}
-    helm.sh/chart: {{ include "etools.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app: {{ include "name" . }}
+    helm.sh/chart: {{ include "chart" . }}
+    environment: {{ .Values.environment | default "production" | quote }}
+    instance: {{ .Release.Name }}
+    managed-by: {{ .Release.Service }}
 spec:
   progressDeadlineSeconds: 600
+  # replica count should be dependent on the name of the deployment, if web / worker / beater
   replicas: {{ .Values.replicaCount }}
+  # make sure we don't run out of storage
   revisionHistoryLimit: 10
+  # 
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ template "fullname" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      app: {{ include "name" . }}
+      instance: {{ .Release.Name }}
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -23,8 +27,8 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ template "fullname" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
+        app: {{ include "name" . }}
+        instance: {{ .Release.Name }}
     spec:
       {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
@@ -33,7 +37,7 @@ spec:
       {{- end}}
       {{- end }}
       containers:
-      - name: {{ template "fullname" . }}
+      - name: {{ include "name" . }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         ports:
@@ -43,9 +47,13 @@ spec:
         env:
           - name: SECRET_KEY
             value: "notsosecret"
-          # envFrom:
-          # - configMapRef:
-          #   name: etools-backend-general
+          {{- if .Values.configMaps }}
+          envFrom:
+          {{- range .Values.image.configMaps }}
+          - configMapRef:
+              name: {{ . }}
+          {{- end}}
+          {{- end }}
         # livenessProbe:
         #   httpGet:
         #     path: /
@@ -55,7 +63,7 @@ spec:
         #     path: /
         #     port: http
         resources:
-          {{- toYaml .Values.resources | nindent 12 }}
+          {{- toYaml .Values.resources | nindent 10 }}
         securityContext:
           allowPrivilegeEscalation: false
           capabilities: {}
@@ -73,13 +81,13 @@ spec:
       terminationGracePeriodSeconds: 30
       {{- with .Values.nodeSelector }}
       nodeSelector:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml . | nindent 10 }}
       {{- end }}
     {{- with .Values.affinity }}
       affinity:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml . | nindent 10 }}
     {{- end }}
     {{- with .Values.tolerations }}
       tolerations:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml . | nindent 10 }}
     {{- end }}
