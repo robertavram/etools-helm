@@ -1,23 +1,27 @@
+{{- $serv := "worker" -}}
+{{- if has $serv .Values.targetServices -}}
+{{- $targetEnv := .Values.targetEnvironment -}}
+{{- $envSettings := pluck $targetEnv .Values.environments | first -}}
+{{- $servSettings := pluck $serv $envSettings | first -}}
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: {{ include "name" . }}
+  name: {{ include "name" . }}-{{ $serv }}
   labels:
-    app: {{ include "name" . }}
+    app: {{ include "name" . }}-{{ $serv }}
     helm.sh/chart: {{ include "chart" . }}
-    environment: {{ .Values.environment | default "production" | quote }}
-    instance: {{ .Release.Name }}
-    managed-by: {{ .Release.Service }}
+    environment: {{ $targetEnv | default "production" | quote }}
+    instance: {{.Release.Name }}
 spec:
   progressDeadlineSeconds: 600
   # replica count should be dependent on the name of the deployment, if web / worker / beater
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ $servSettings.replicaCount }}
   # make sure we don't run out of storage
   revisionHistoryLimit: 10
   # 
   selector:
     matchLabels:
-      app: {{ include "name" . }}
+      app: {{ include "name" . }}-{{ $serv }}
       instance: {{ .Release.Name }}
   strategy:
     rollingUpdate:
@@ -27,19 +31,13 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ include "name" . }}
+        app: {{ include "name" . }}-{{ $serv }}
         instance: {{ .Release.Name }}
     spec:
-      {{- if .Values.image.pullSecrets }}
-      imagePullSecrets:
-      {{- range .Values.image.pullSecrets }}
-        - name: {{ . }}
-      {{- end}}
-      {{- end }}
       containers:
-      - name: {{ include "name" . }}
+      - name: {{ include "name" . }}-{{ $serv }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
         ports:
           - name: http
             containerPort: 80
@@ -47,9 +45,9 @@ spec:
         env:
           - name: SECRET_KEY
             value: "notsosecret"
-          {{- if .Values.configMaps }}
+          {{- if $servSettings.configMaps }}
           envFrom:
-          {{- range .Values.image.configMaps }}
+          {{- range $servSettings.configMaps }}
           - configMapRef:
               name: {{ . }}
           {{- end}}
@@ -63,6 +61,7 @@ spec:
         #     path: /
         #     port: http
         resources:
+          # TODO: move these under servSettings as different services running on this image can require different resources
           {{- toYaml .Values.resources | nindent 10 }}
         securityContext:
           allowPrivilegeEscalation: false
@@ -79,15 +78,4 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 10 }}
-      {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 10 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 10 }}
-    {{- end }}
+{{- end -}}

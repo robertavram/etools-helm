@@ -3,10 +3,67 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+# environment to be deployed
+targetEnvironment: develop
+pullPolicy: Always
+
+# targetServices options are "worker | web | beater"
+targetServices:
+  - web
+
 image:
-  repository: strm/helloworld-http
-  tag: latest
+  repository: unicef/etools
+  tag: develop
   pullPolicy: IfNotPresent
+
+environments:
+  develop:
+    imageTag: develop
+    pullPolicy: Always
+    beater:
+      replicaCount: 1
+    worker:
+      replicaCount: 1
+    web:
+      replicaCount: 1
+  staging:
+    imageTag: staging
+    pullPolicy: Always
+    beater:
+      replicaCount: 1
+    worker:
+      replicaCount: 1
+    web:
+      replicaCount: 1
+  demo:
+    imageTag: demo
+    pullPolicy: Always
+    beater:
+      replicaCount: 1
+    worker:
+      replicaCount: 1
+    web:
+      replicaCount: 1
+  test:
+    imageTag: test
+    pullPolicy: Always
+    beater:
+      replicaCount: 1
+    worker:
+      replicaCount: 1
+    web:
+      replicaCount: 1
+  production:
+    # change this to actual realease numbers
+    imageTag: master
+    pullPolicy: Always
+    beater:
+      replicaCount: 1
+    worker:
+      replicaCount: 1
+    web:
+      replicaCount: 1
+
 
 nameOverride: "etools-django"
 fullnameOverride: "etools-django"
