@@ -1,1 +1,0 @@
-# eTools Django helm chart
