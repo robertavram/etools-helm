@@ -10,6 +10,7 @@ pullPolicy: Always
 # targetServices options are "worker | web | beater"
 targetServices:
   - web
+  - worker
 
 image:
   repository: unicef/etools

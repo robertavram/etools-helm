@@ -54,11 +54,11 @@ spec:
           {{- end }}
         # livenessProbe:
         #   httpGet:
-        #     path: /
+        #     path: /app-alive
         #     port: http
         # readinessProbe:
         #   httpGet:
-        #     path: /
+        #     path: /app-ready
         #     port: http
         resources:
           # TODO: move these under servSettings as different services running on this image can require different resources
