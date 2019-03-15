@@ -1,3 +1,6 @@
+categories:
+- category 1    
+- category 2
 questions:
 - variable: targetEnvironment
   default: "develop"
