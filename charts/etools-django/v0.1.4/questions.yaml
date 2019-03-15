@@ -1,7 +1,10 @@
+categories:
+  - unicef
+  - etools
 questions:
 - variable: targetEnvironment
   default: "develop"
   description: "Environment eTools will be running in: develop | staging | production | demo | test"
-  type: string
-  required: true
   label: Target Environments
+  type: string
+  group: "Environment"
