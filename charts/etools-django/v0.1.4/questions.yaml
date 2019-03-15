@@ -5,18 +5,16 @@ questions:
 - variable: targetEnvironment
   default: "develop"
   description: "Environment eTools will be running in: develop | staging | production | demo | test"
-  type: enum
+  type: string
   required: true
-  label: Target Environment
-  options: 
-    - "develop"
-    - "staging"
-    - "production"
-    - "demo"
-    - "test"
+  label: Target Environments
 - variable: targetServices
   type: enum
   default: 
     - web
     - worker
+  options:
+    - web
+    - worker
+    - beaters
   label: Target Services (web | worker | beater)
