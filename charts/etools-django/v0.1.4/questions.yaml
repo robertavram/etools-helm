@@ -8,3 +8,15 @@ questions:
   label: Target Environments
   type: string
   group: "Environment"
+- variable: targetServices
+  default:
+  - web
+  - worker
+  description: "Services that can be targeted: web | worker | beater"
+  label: Target Services
+  type: enum
+  options:
+  - web
+  - worker
+  - beater
+  group: "Environment"
