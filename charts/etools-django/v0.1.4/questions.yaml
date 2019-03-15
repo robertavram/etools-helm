@@ -5,14 +5,3 @@ questions:
   type: string
   required: true
   label: Target Environments
-- variable: targetServices
-  description: "Missing description"
-  type: enum
-  default: 
-    - web
-    - worker
-  options:
-    - web
-    - worker
-    - beaters
-  label: Target Services (web | worker | beater)
