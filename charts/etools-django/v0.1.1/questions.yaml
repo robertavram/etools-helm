@@ -1,0 +1,16 @@
+categories:
+  - category 1 test
+  - category 1 test
+questions:
+- variable: targetEnvironment
+  default: "develop"
+  description: "Environment eTools will be running in: develop | staging | production | demo | test"
+  type: string
+  required: true
+  label: Target Environment
+  options: 
+    - "develop"
+    - "staging"
+    - "production"
+    - "demo"
+    - "test"
