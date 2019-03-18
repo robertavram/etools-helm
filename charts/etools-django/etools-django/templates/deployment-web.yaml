@@ -18,7 +18,7 @@ spec:
   replicas: {{ $servSettings.replicaCount }}
   # make sure we don't run out of storage
   revisionHistoryLimit: 10
-  # 
+  
   selector:
     matchLabels:
       app: {{ include "name" . }}-{{ $serv }}

@@ -11,8 +11,7 @@ deployWeb: true
 deployBeater: false
 
 webConfig:
-  command: false
-
+  command: ""
 
 image:
   repository: unicef/etools
