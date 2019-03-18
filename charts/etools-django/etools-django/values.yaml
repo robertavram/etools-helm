@@ -31,8 +31,8 @@ environments:
     web:
       replicaCount: 1
       configMaps:
-        - defaultEtoolsConfig
-        - webEtoolsConfig
+        - defaultetoolsconfig
+        - webetoolsconfig
   staging:
     imageTag: staging
     pullPolicy: Always
