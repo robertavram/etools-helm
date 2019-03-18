@@ -8,8 +8,11 @@ targetEnvironment: develop
 # Which workloads to deploy?
 deployWorker: false
 deployWeb: true
-deployBeater: true
-deployFlower: false
+deployBeater: false
+
+webConfig:
+  command: false
+
 
 image:
   repository: unicef/etools
@@ -23,13 +26,13 @@ environments:
     pullPolicy: Always
     beater:
       replicaCount: 1
-      command: "beat"
     worker:
       replicaCount: 1
-      command: "worker"
     web:
       replicaCount: 1
-      command: "web"
+      configMaps:
+        - defaultetoolsconfig
+        - webetoolsconfig
   staging:
     imageTag: staging
     pullPolicy: Always

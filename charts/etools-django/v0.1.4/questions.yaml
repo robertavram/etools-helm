@@ -19,7 +19,7 @@ questions:
 - variable: deployWeb
   default: true
   description: "Whether or not to deploy web container"
-  label: Target Environments
+  label: Deploy Web?
   required: true
   type: boolean
   group: "Environment"
@@ -35,4 +35,24 @@ questions:
     description: "Web entrypoint"
     type: string
     label: Entrypoint
+- variable: deployWorker
+  default: true
+  description: "Whether or not to deploy worker workload"
+  label: Deploy Workers?
+  required: true
+  type: boolean
+  group: "Environment"
+  show_subquestion_if: true
+  subquestions:
+  - variable: workerConfig.command
+    default: ""
+    description: "Worker workload command | not used yet.. dor now just testing"
+    type: string
+    label: Command
+  - variable: workerConfig.entrypoint
+    default: "entrypoint.sh"
+    description: "Worker entrypoint"
+    type: string
+    label: Entrypoint
+
 
