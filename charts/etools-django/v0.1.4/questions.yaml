@@ -1,3 +1,4 @@
+# file structure: https://rancher.com/docs/rancher/v2.x/en/catalog/custom/#question-variable-reference
 categories:
   - unicef
   - etools
@@ -6,6 +7,32 @@ questions:
   default: "develop"
   description: "Environment eTools will be running in: develop | staging | production | demo | test"
   label: Target Environments
-  type: string
+  required: true
+  type: enum
+  options:
+   - develop
+   - staging
+   - test
+   - demo
+   - production
   group: "Environment"
+- variable: deployWeb
+  default: true
+  description: "Whether or not to deploy web container"
+  label: Target Environments
+  required: true
+  type: boolean
+  group: "Environment"
+  show_subquestion_if: true
+  subquestions:
+  - variable: webConfig.command
+    default: ""
+    description: "Web workload command | not used yet.. dor now just testing"
+    type: string
+    label: Command
+  - variable: webConfig.entrypoint
+    default: "entrypoint.sh"
+    description: "Web entrypoint"
+    type: string
+    label: Entrypoint
 
