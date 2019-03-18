@@ -18,7 +18,7 @@ spec:
   replicas: {{ $servSettings.replicaCount }}
   # make sure we don't run out of storage
   revisionHistoryLimit: 10
-  
+
   selector:
     matchLabels:
       app: {{ include "name" . }}-{{ $serv }}
@@ -35,12 +35,12 @@ spec:
         instance: {{ .Release.Name }}
     spec:
       containers:
-      {{- if .Values.webConfig.command }}
-      - args:
-        {{- range .Values.webConfig.command }}
-        - {{.}}
-        {{- end }}
-      {{- end  }}
+      # {{- if .Values.webConfig.command }}
+      # - args:
+      #   {{- range .Values.webConfig.command }}
+      #   - {{.}}
+      #   {{- end }}
+      # {{- end  }}
       - name: {{ include "name" . }}-{{ $serv }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
