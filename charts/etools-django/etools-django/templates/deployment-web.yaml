@@ -35,29 +35,23 @@ spec:
         instance: {{ .Release.Name }}
     spec:
       containers:
-      # {{- if .Values.webConfig.command }}
-      # - args:
-      #   {{- range .Values.webConfig.command }}
-      #   - {{.}}
-      #   {{- end }}
-      # {{- end  }}
       - name: {{ include "name" . }}-{{ $serv }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
         ports:
-          - name: http
-            containerPort: 80
-            protocol: TCP
+        - name: http
+          containerPort: 80
+          protocol: TCP
         env:
-          - name: SECRET_KEY
-            value: "notsosecret"
-          {{- if $servSettings.configMaps }}
-          envFrom:
-          {{- range $servSettings.configMaps }}
-          - configMapRef:
-              name: {{ . }}
-          {{- end}}
-          {{- end }}
+        - name: SECRET_KEY
+          value: "notsosecret"
+        {{- if $servSettings.configMaps }}
+        envFrom:
+        {{- range $servSettings.configMaps }}
+        - configMapRef:
+            name: {{ . }}
+        {{- end}}
+        {{- end }}
         # livenessProbe:
         #   httpGet:
         #     path: /app-alive

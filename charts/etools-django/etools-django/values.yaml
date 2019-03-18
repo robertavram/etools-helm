@@ -6,7 +6,7 @@
 targetEnvironment: develop
 
 # Which workloads to deploy?
-deployWorker: false
+deployWorker: true
 deployWeb: true
 deployBeater: false
 
