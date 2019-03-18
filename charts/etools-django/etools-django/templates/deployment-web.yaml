@@ -35,6 +35,12 @@ spec:
         instance: {{ .Release.Name }}
     spec:
       containers:
+      {{- if .Values.webConfig.command }}
+      - args:
+        {{- range .Values.webConfig.command }}
+        - {{.}}
+        {{- end }}
+      {{- end  }}
       - name: {{ include "name" . }}-{{ $serv }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
