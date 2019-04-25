@@ -36,6 +36,7 @@ spec:
     spec:
       containers:
       - name: {{ include "name" . }}-{{ $serv }}
+        command: ["gunicorn" "etools.config.wsgi", "-b", "0.0.0.0:8080", "-w", "6"]
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
         ports:
