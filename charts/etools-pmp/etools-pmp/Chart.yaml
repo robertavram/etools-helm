@@ -3,7 +3,7 @@ appVersion: "1.0"
 description: eTools Django Backend Helm Chart
 home: https://etools.unicef.org
 name: etools-pmp
-version: 1.0.1
+version: 1.0.2
 maintainers:
   - name: Robert Avram
     email: ravram@unicef.org
