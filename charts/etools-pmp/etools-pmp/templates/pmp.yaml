@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: {{ include "name" . }}
-        args: ["node" "express.js"]
+        args: ["node", "express.js"]
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
         ports:
