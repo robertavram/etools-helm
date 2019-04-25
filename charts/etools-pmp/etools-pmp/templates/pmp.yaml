@@ -1,6 +1,5 @@
 {{- $targetEnv := .Values.targetEnvironment -}}
 {{- $envSettings := pluck $targetEnv .Values.environments | first -}}
-{{- $servSettings := pluck $serv $envSettings | first -}}
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
@@ -13,7 +12,7 @@ metadata:
 spec:
   progressDeadlineSeconds: 600
   # replica count should be dependent on the name of the deployment, if web / worker / beater
-  replicas: {{ $servSettings.replicaCount }}
+  replicas: {{ $envSettings.replicaCount }}
   # make sure we don't run out of storage
   revisionHistoryLimit: 10
 
@@ -42,9 +41,9 @@ spec:
           containerPort: 80
           protocol: TCP
         env:
-        {{- if $servSettings.configMaps }}
+        {{- if $envSettings.configMaps }}
         envFrom:
-        {{- range $servSettings.configMaps }}
+        {{- range $envSettings.configMaps }}
         - configMapRef:
             name: {{ . }}
         {{- end}}

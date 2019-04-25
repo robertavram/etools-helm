@@ -16,64 +16,32 @@ environments:
   develop:
     imageTag: develop
     pullPolicy: Always
-    beater:
-      replicaCount: 1
-    worker:
-      replicaCount: 1
-    web:
-      replicaCount: 1
-      configMaps:
-        - defaultetoolsconfig
-        - webetoolsconfig
+    replicaCount: 1
+    configMaps:
+      - defaultetoolsconfig
   staging:
     imageTag: staging
     pullPolicy: Always
-    beater:
-      replicaCount: 1
-      command: "beat"
-    worker:
-      replicaCount: 1
-      command: "worker"
-    web:
-      replicaCount: 1
-      command: "web"
+    replicaCount: 1
+    command: "web"
   demo:
     imageTag: demo
     pullPolicy: Always
-    beater:
-      replicaCount: 1
-      command: "beat"
-    worker:
-      replicaCount: 1
-      command: "worker"
-    web:
-      replicaCount: 1
-      command: "web"
+    replicaCount: 1
+    command: "beat"
+    replicaCount: 1
+    command: "web"
   test:
     imageTag: test
     pullPolicy: Always
-    beater:
-      replicaCount: 1
-      command: "beat"
-    worker:
-      replicaCount: 1
-      command: "worker"
-    web:
-      replicaCount: 1
-      command: "web"
+    replicaCount: 1
+    command: "web"
   production:
     # change this to actual realease numbers
     imageTag: master
     pullPolicy: Always
-    beater:
-      replicaCount: 1
-      command: "beat"
-    worker:
-      replicaCount: 1
-      command: "worker"
-    web:
-      replicaCount: 1
-      command: "web"
+    replicaCount: 1
+    command: "web"
 
 nameOverride: "etools-pmp"
 fullnameOverride: "etools-pmp"
