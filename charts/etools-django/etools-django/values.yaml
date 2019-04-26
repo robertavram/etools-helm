@@ -15,13 +15,13 @@ webConfig:
 
 image:
   repository: unicef/etools
-  tag: develop
+  tag: io
   pullPolicy: IfNotPresent
 
 # By each environment provide defaults
 environments:
   develop:
-    imageTag: develop
+    imageTag: io
     pullPolicy: Always
     beater:
       replicaCount: 1
