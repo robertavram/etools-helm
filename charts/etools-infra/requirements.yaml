@@ -1,0 +1,7 @@
+dependencies:
+    - name: etools-django
+    version: 0.0.1
+    repositoriy: "https://etools-charts.storage.googleapis.com/"
+    -name: etools-dash
+    version: 0.0.1
+    repositoriy: "https://etools-charts.storage.googleapis.com/"

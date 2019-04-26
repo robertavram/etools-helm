@@ -1,0 +1,8 @@
+etools-django:
+    targetEnvironment: develop
+    deployWorker: true
+    deployWeb: true
+    deployBeater: false
+
+etools-dash:
+    targetEnvironment: develop
