@@ -14,6 +14,6 @@
     "req_cpu": "500m",
     "max_ram": "1Gi",
     "req_ram": "512Mi",
-    "proj_homepage": "https://etools.unicef.org",
-    "proj_icon_url": "https://github.com/unicef/etools-tpm/blob/master/src/assets/images/etools_logo_icon.png",
+    "project_homepage": "https://etools.unicef.org",
+    "project_icon_url": "https://github.com/unicef/etools-tpm/blob/master/src/assets/images/etools_logo_icon.png"
 }

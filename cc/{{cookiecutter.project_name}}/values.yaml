@@ -55,7 +55,7 @@ resources: {
   },
   "requests": {
     "cpu": {{cookiecutter.req_cpu}},
-    "memory": {{cookiecutteer.req_ram}}
+    "memory": {{cookiecutter.req_ram}}
   }
 }
 
