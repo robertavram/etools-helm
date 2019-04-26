@@ -1,0 +1,93 @@
+{% raw %}{{- $targetEnv := .Values.targetEnvironment -}}
+{{- $envSettings := pluck $targetEnv .Values.environments | first -}}
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ include "name" . }}
+  labels:
+    app: {{ include "name" . }}
+    helm.sh/chart: {{ include "chart" . }}
+    environment: {{ $targetEnv | default "production" | quote }}
+    instance: {{.Release.Name }}
+spec:
+  progressDeadlineSeconds: 600
+  # replica count should be dependent on the name of the deployment, if web / worker / beater
+  replicas: {{ $envSettings.replicaCount }}
+  # make sure we don't run out of storage
+  revisionHistoryLimit: 10
+
+  selector:
+    matchLabels:
+      app: {{ include "name" . }}
+      instance: {{ .Release.Name }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: {{ include "name" . }}
+        instance: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ include "name" . }}
+        {{- if .Values.entrypoint }}
+        command: {{ .Values.entrypoint }}
+        {{- end }}
+        {{- if .Values.entryCommand }}
+        args:
+        {{- range .Values.entryCommand }} 
+          - {{ . | quote }}
+        {{- end }}
+        {{- end }}
+        image: "{{ .Values.image.repository }}:{{ include "dockerImageTag" .}}""
+        imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.containerPort }}
+          protocol: TCP
+        env:
+        {{- if or $envSettings.configMaps true $envSettings.secretRefs }}
+        envFrom:
+        {{- range $envSettings.configMaps }}
+        - configMapRef:
+            name: {{ . }}
+        {{- end}}
+        {{- range $envSettings.secretRefs }}
+        - secretRef:
+            name: {{ . }}
+        {{- end}}
+        {{- end }}
+        {{- if .Values.livenessProbePath }}
+        livenessProbe:
+          httpGet:
+            path: {{.Values.livenessProbePath}}
+            port: http
+        {{- end}}
+        {{- if .Values.readinessProbePath }}
+        readinessProbe:
+          httpGet:
+            path: {{.Values.readinessProbePath}}
+            port: http
+        {{- end}}
+        resources:
+          # TODO: move these under servSettings as different services running on this image can require different resources
+          {{- toYaml .Values.resources | nindent 10 }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities: {}
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+{% endraw %}

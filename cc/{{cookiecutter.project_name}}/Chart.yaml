@@ -1,0 +1,11 @@
+apiVersion: v1
+appVersion: {{cookiecutter.app_version}}
+description: {{cookiecutter.project_desc}}
+home: {{cookiecutter.project_homepage}}
+name: {{cookiecutter.project_name}}
+version: {{cookiecutter.chart_version}}
+maintainers:
+  - name: Robert Avram
+    email: ravram@unicef.org
+appversion: {{cookiecutter.app_version}}
+icon: {{cookiecutter.project_icon_url}}
