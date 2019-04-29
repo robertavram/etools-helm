@@ -1,0 +1,9 @@
+dependencies:
+- name: etools-django
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+- name: etools-pmp
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+digest: sha256:62b472e6428a1b472077457b9f6ff07575aafb34c55cdd53e270a9cf074a88bf
+generated: 2019-04-29T11:20:26.234858-04:00

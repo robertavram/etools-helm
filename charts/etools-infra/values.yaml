@@ -1,8 +1,42 @@
+# Default values for etools.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
 etools-django:
-    targetEnvironment: develop
-    deployWorker: true
-    deployWeb: true
-    deployBeater: false
+  enabled: true
+  targetEnvironment: develop
+  deployWorker: true
+  deployWeb: true
+  deployBeater: false
+
+etools-pmp:
+  enabled: true
+  targetEnvironment: develop
 
 etools-dash:
-    targetEnvironment: develop
+  enabled: true
+  targetEnvironment: develop
+
+etools-ap:
+  enabled: true
+  targetEnvironment: develop
+
+etools-t2f:
+  enabled: true
+  targetEnvironment: develop
+
+etools-action-points:
+  enabled: true
+  targetEnvironment: develop
+
+etools-landing:
+  enabled: true
+  targetEnvironment: develop
+
+etools-tpm:
+  enabled: true
+  targetEnvironment: develop
+
+redis:
+   enabled: true
+
