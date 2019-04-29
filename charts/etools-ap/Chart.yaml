@@ -1,0 +1,11 @@
+apiVersion: v1
+appVersion: 9.0.0
+description: eTools Financial Assurance Module (formally AP - Auditor Portal)
+home: https://etools.unicef.org
+name: etools-ap
+version: 0.0.1
+maintainers:
+  - name: Robert Avram
+    email: ravram@unicef.org
+appversion: 9.0.0
+icon: https://github.com/unicef/etools-tpm/blob/master/src/assets/images/etools_logo_icon.png
