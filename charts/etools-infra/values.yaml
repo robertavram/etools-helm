@@ -12,7 +12,7 @@ etools-pmp:
   enabled: true
   targetEnvironment: develop
 
-etools-dash:
+etools-dashboard:
   enabled: true
   targetEnvironment: develop
 

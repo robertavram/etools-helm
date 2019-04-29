@@ -42,7 +42,7 @@ spec:
           - {{ . | quote }}
         {{- end }}
         {{- end }}
-        image: "{{ .Values.image.repository }}:{{ include "dockerImageTag" .}}""
+        image: "{{ .Values.image.repository }}:{{ include "dockerImageTag" .}}"
         imagePullPolicy: {{  $envSettings.pullPolicy | quote }}
         ports:
         - name: http

@@ -7,10 +7,10 @@ dependencies:
     version: 0.0.2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-pmp.enabled
-  - name: etools-dash
+  - name: etools-dashboard
     version: 0.0.1
     repository: "https://etools-charts.storage.googleapis.com/"
-    condition: etools-dash.enabled
+    condition: etools-dashboard.enabled
   - name: etools-ap
     version: 0.0.1
     repository: "https://etools-charts.storage.googleapis.com/"

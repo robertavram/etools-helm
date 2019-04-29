@@ -7,7 +7,7 @@ targetEnvironment: develop
 entryCommand:  
   - "node" 
   - "express.js"
-entrypoint: 
+entrypoint: ""
 
 image:
   repository: unicef/etools-t2f

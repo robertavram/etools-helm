@@ -43,20 +43,20 @@ environments:
     pullPolicy: Always
     replicaCount: 1
 
-nameOverride: "etools-dash"
-fullnameOverride: "etools-dash"
+nameOverride: etools-dashboard
+fullnameOverride: etools-dashboard
 
 ingress:
   enabled: false
 
 resources: {
   "limits": {
-    "cpu": 1,
+    "cpu": 500m,
     "memory": 1Gi
   },
   "requests": {
     "cpu": 500m,
-    "memory": 512Mi
+    "memory": 256Mi
   }
 }
 
