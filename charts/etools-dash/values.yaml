@@ -43,8 +43,8 @@ environments:
     pullPolicy: Always
     replicaCount: 1
 
-nameOverride: "etools-pmp"
-fullnameOverride: "etools-pmp"
+nameOverride: "etools-dash"
+fullnameOverride: "etools-dash"
 
 ingress:
   enabled: false

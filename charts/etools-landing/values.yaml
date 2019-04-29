@@ -42,8 +42,8 @@ environments:
     pullPolicy: Always
     replicaCount: 1
 
-nameOverride: "etools-pmp"
-fullnameOverride: "etools-pmp"
+nameOverride: "etools-landing"
+fullnameOverride: "etools-landing"
 
 ingress:
   enabled: false

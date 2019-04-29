@@ -42,8 +42,8 @@ environments:
     pullPolicy: Always
     replicaCount: 1
 
-nameOverride: "etools-pmp"
-fullnameOverride: "etools-pmp"
+nameOverride: {{cookiecutter.project_name}}
+fullnameOverride: {{cookiecutter.project_name}}
 
 ingress:
   enabled: false

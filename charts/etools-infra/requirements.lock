@@ -5,5 +5,26 @@ dependencies:
 - name: etools-pmp
   repository: https://etools-charts.storage.googleapis.com/
   version: 0.0.1
-digest: sha256:62b472e6428a1b472077457b9f6ff07575aafb34c55cdd53e270a9cf074a88bf
-generated: 2019-04-29T11:20:26.234858-04:00
+- name: etools-dash
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+- name: etools-ap
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+- name: etools-t2f
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+- name: etools-action-points
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+- name: etools-landing
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+- name: etools-tpm
+  repository: https://etools-charts.storage.googleapis.com/
+  version: 0.0.1
+- name: redis
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 7.0.0
+digest: sha256:1bb7c0faf3235d720775ee05445192a490a09f3ce02bb0844e43cad9f96c2a36
+generated: 2019-04-29T13:34:00.980528-04:00

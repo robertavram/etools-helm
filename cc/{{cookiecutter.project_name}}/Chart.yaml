@@ -7,5 +7,4 @@ version: {{cookiecutter.chart_version}}
 maintainers:
   - name: Robert Avram
     email: ravram@unicef.org
-appversion: {{cookiecutter.app_version}}
 icon: {{cookiecutter.project_icon_url}}

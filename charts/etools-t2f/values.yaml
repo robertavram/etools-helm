@@ -43,8 +43,8 @@ environments:
     pullPolicy: Always
     replicaCount: 1
 
-nameOverride: "etools-pmp"
-fullnameOverride: "etools-pmp"
+nameOverride: "etools-t2f"
+fullnameOverride: "etools-t2f"
 
 ingress:
   enabled: false
