@@ -3,7 +3,7 @@ appVersion: 1.0.0
 description: eTools Infra
 home: https://etools.unicef.org
 name: etools-infra
-version: 0.0.1
+version: 0.0.1-b3
 maintainers:
   - name: Robert Avram
     email: ravram@unicef.org

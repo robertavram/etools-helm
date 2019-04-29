@@ -5,7 +5,7 @@
 # environment to be deployed
 targetEnvironment: develop
 entryCommand:  
-  - """"
+  - ""
 entrypoint: 
 
 image:

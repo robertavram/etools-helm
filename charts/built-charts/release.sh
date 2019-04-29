@@ -1,7 +1,8 @@
 #!/bin/sh
 set -e
 
-repos=(django t2f pmp ap action-points tpm dashboard)
+repos=(django t2f pmp ap action-points tpm dashboard landing)
+
 CHARTS_PATH="$(dirname "$(pwd)")"
 echo "What release number do you want to use?"
 read VERSION
@@ -17,7 +18,7 @@ do
     echo "packaging ${REPO} with verion ${VERSION}"
     helm package --version $VERSION $REPO_PTH
     echo "pushing image to GCS"
-    echo "helm gcs push etools-${REPO}:${VERSION} etools-charts"
+    helm gcs push etools-${REPO}-${VERSION}.tgz etools-charts
 done
 
 

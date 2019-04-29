@@ -1,34 +1,34 @@
 dependencies:
   - name: etools-django
-    version: 0.0.1
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-django.enabled
   - name: etools-pmp
-    version: 0.0.2
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-pmp.enabled
   - name: etools-dashboard
-    version: 0.0.1
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-dashboard.enabled
   - name: etools-ap
-    version: 0.0.1
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-ap.enabled
   - name: etools-t2f
-    version: 0.0.1
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-t2f.enabled
   - name: etools-action-points
-    version: 0.0.1
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-action-points.enabled
   - name: etools-landing
-    version: 0.0.1
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-landing.enabled
   - name: etools-tpm
-    version: 0.0.1
+    version: 0.0.1-b2
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-tpm.enabled
   - name: redis
