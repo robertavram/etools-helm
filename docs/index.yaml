@@ -3,7 +3,7 @@ entries:
   etools-action-points:
   - apiVersion: v1
     appVersion: 8.0.0
-    created: 2019-05-03T15:09:51.88823-04:00
+    created: 2019-05-03T15:24:46.729402-04:00
     description: eTools frontend Action Points Module chart
     digest: d77faf9061fa85735d3cd36ba089a4b7b30ced978379dfb30737546b46d5182a
     home: https://etools.unicef.org
@@ -18,7 +18,7 @@ entries:
   etools-ap:
   - apiVersion: v1
     appVersion: 9.0.0
-    created: 2019-05-03T15:09:51.888548-04:00
+    created: 2019-05-03T15:24:46.729709-04:00
     description: eTools Financial Assurance Module (formally AP - Auditor Portal)
     digest: 366c5155591e8203984b8fe041f0a2303111e3e22ff5dd1d9ed63f94d4d8dca7
     home: https://etools.unicef.org
@@ -33,7 +33,7 @@ entries:
   etools-dashboard:
   - apiVersion: v1
     appVersion: 8.0.0
-    created: 2019-05-03T15:09:51.888848-04:00
+    created: 2019-05-03T15:24:46.729996-04:00
     description: eTools Dashboard helm chart
     digest: ff3865f6c042233bcf62875a7771d22bf3ff38dc8b85e571ba65a639b5428c4d
     home: https://etools.unicef.org
@@ -48,7 +48,7 @@ entries:
   etools-django:
   - apiVersion: v1
     appVersion: 8.0.0
-    created: 2019-05-03T15:09:51.889199-04:00
+    created: 2019-05-03T15:24:46.730338-04:00
     description: eTools Django Backend Helm Chart
     digest: 9a44212d77661077537c06e569c87dd23dc52f2cd1c86ad99ebdaa095ee3093e
     home: https://etools.unicef.org
@@ -63,7 +63,7 @@ entries:
   etools-infra:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: 2019-05-03T15:09:51.897892-04:00
+    created: 2019-05-03T15:24:46.739381-04:00
     description: eTools Infra
     digest: f40e1bfdc48c6298c1a23e96144e9f42a8401a24386ac04960ebf7fbaa1343fc
     home: https://etools.unicef.org
@@ -77,7 +77,7 @@ entries:
     version: 0.0.1-b5
   - apiVersion: v1
     appVersion: 1.0.0
-    created: 2019-05-03T15:09:51.895392-04:00
+    created: 2019-05-03T15:24:46.73674-04:00
     description: eTools Infra
     digest: 3085bd703f8a2c66dcf11da93d2841439e132fac01a4d013fdcc97412e950469
     home: https://etools.unicef.org
@@ -91,7 +91,7 @@ entries:
     version: 0.0.1-b4
   - apiVersion: v1
     appVersion: 1.0.0
-    created: 2019-05-03T15:09:51.891994-04:00
+    created: 2019-05-03T15:24:46.734166-04:00
     description: eTools Infra
     digest: 5e5eddaab59f01b07d0ee2c3686183c718523d87fb36cdc7d4bee84a7dcf6afe
     home: https://etools.unicef.org
@@ -106,7 +106,7 @@ entries:
   etools-landing:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: 2019-05-03T15:09:51.898195-04:00
+    created: 2019-05-03T15:24:46.739709-04:00
     description: eTools Landing Page chart
     digest: 76fc83676a9c73ce7d951fad19ab33ea6e456a6600174d34636525b8a2a795fc
     home: https://etools.unicef.org
@@ -121,7 +121,21 @@ entries:
   etools-pmp:
   - apiVersion: v1
     appVersion: 9.0.0
-    created: 2019-05-03T15:09:51.898508-04:00
+    created: 2019-05-03T15:24:46.740418-04:00
+    description: eTools Django Backend Helm Chart
+    digest: db8c4a7a0d4db70ddb05b2fc955a6471abb2f9ac8571ab9ec4cef82bef132e0f
+    home: https://etools.unicef.org
+    icon: https://github.com/unicef/etools-tpm/blob/master/src/assets/images/etools_logo_icon.png
+    maintainers:
+    - email: ravram@unicef.org
+      name: Robert Avram
+    name: etools-pmp
+    urls:
+    - https://robertavram.github.io/etools-helm/etools-pmp-0.0.1-b4.tgz
+    version: 0.0.1-b4
+  - apiVersion: v1
+    appVersion: 9.0.0
+    created: 2019-05-03T15:24:46.74006-04:00
     description: eTools Django Backend Helm Chart
     digest: 5f0c74583d49d2b5d42c17e7b67acf71a6da1c8233866f067c53036b3a7a5352
     home: https://etools.unicef.org
@@ -136,7 +150,7 @@ entries:
   etools-t2f:
   - apiVersion: v1
     appVersion: 8.0.0
-    created: 2019-05-03T15:09:51.89882-04:00
+    created: 2019-05-03T15:24:46.740743-04:00
     description: eTools frontend T2F chart
     digest: 8f00b542686a39f9514389824bbdf9c1879ee1a459c3dc482e70da8a6b35353d
     home: https://etools.unicef.org
@@ -151,7 +165,7 @@ entries:
   etools-tpm:
   - apiVersion: v1
     appVersion: 8.0.0
-    created: 2019-05-03T15:09:51.899152-04:00
+    created: 2019-05-03T15:24:46.741155-04:00
     description: eTools Third Party Monitoring Helm Template
     digest: e4ef9cfa96f5ce1210512085340d3767f04e23a57525f3b1fbcbd24daeeef2c1
     home: https://etools.unicef.org
@@ -163,4 +177,4 @@ entries:
     urls:
     - https://robertavram.github.io/etools-helm/etools-tpm-0.0.1-b3.tgz
     version: 0.0.1-b3
-generated: 2019-05-03T15:09:51.887795-04:00
+generated: 2019-05-03T15:24:46.72897-04:00
