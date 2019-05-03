@@ -1,35 +1,35 @@
 dependencies:
   - name: etools-django
     version: 0.0.1-b3
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-django.enabled
   - name: etools-pmp
     version: 0.0.1-b4
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-pmp.enabled
   - name: etools-dashboard
     version: 0.0.1-b3
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-dashboard.enabled
   - name: etools-ap
     version: 0.0.1-b3
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-ap.enabled
   - name: etools-t2f
     version: 0.0.1-b3
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-t2f.enabled
   - name: etools-action-points
     version: 0.0.1-b3
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-action-points.enabled
   - name: etools-landing
     version: 0.0.1-b3
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-landing.enabled
   - name: etools-tpm
     version: 0.0.1-b3
-    repository: "https://etools-charts.storage.googleapis.com/"
+    repository: "https://robertavram.github.io/etools-helm/"
     condition: etools-tpm.enabled
   - name: redis
     version: 7.0.0

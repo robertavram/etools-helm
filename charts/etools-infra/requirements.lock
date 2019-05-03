@@ -1,30 +1,30 @@
 dependencies:
 - name: etools-django
-  repository: https://etools-charts.storage.googleapis.com/
+  repository: https://robertavram.github.io/etools-helm/
   version: 0.0.1-b3
 - name: etools-pmp
-  repository: https://etools-charts.storage.googleapis.com/
-  version: 0.0.1-b3
+  repository: https://robertavram.github.io/etools-helm/
+  version: 0.0.1-b4
 - name: etools-dashboard
-  repository: https://etools-charts.storage.googleapis.com/
+  repository: https://robertavram.github.io/etools-helm/
   version: 0.0.1-b3
 - name: etools-ap
-  repository: https://etools-charts.storage.googleapis.com/
+  repository: https://robertavram.github.io/etools-helm/
   version: 0.0.1-b3
 - name: etools-t2f
-  repository: https://etools-charts.storage.googleapis.com/
+  repository: https://robertavram.github.io/etools-helm/
   version: 0.0.1-b3
 - name: etools-action-points
-  repository: https://etools-charts.storage.googleapis.com/
+  repository: https://robertavram.github.io/etools-helm/
   version: 0.0.1-b3
 - name: etools-landing
-  repository: https://etools-charts.storage.googleapis.com/
+  repository: https://robertavram.github.io/etools-helm/
   version: 0.0.1-b3
 - name: etools-tpm
-  repository: https://etools-charts.storage.googleapis.com/
+  repository: https://robertavram.github.io/etools-helm/
   version: 0.0.1-b3
 - name: redis
   repository: https://kubernetes-charts.storage.googleapis.com
   version: 7.0.0
-digest: sha256:16c90a247b3a13fc2d1525e08712936869c6c7ecf566f7ee7171c5d4c93404f9
-generated: 2019-04-29T16:10:00.900695-04:00
+digest: sha256:8e370c8745157ede1f1beb122943925d9c51e7037d9b53f69e884ef437c7e09f
+generated: 2019-05-03T15:29:13.688083-04:00
