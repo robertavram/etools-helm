@@ -1,0 +1,19 @@
+{
+    "helm_template_name": "dash",
+    "project_name": "etools-dash",
+    "project_desc": "eTools Helm Chart",
+    "target_environment": ["develop", "staging", "test", "demo", "production"],
+    "docker_hub_repo": "unicef/etools-pmp",
+    "app_version": "8.0.0",
+    "chart_version": "0.0.1",
+    "container_port": 8080,
+    "container_command": "node express.js",
+    "container_entrypoint": "",
+    "docker_custom_image_tag": "",
+    "max_cpu": "500m",
+    "req_cpu": "500m",
+    "max_ram": "1Gi",
+    "req_ram": "256Mi",
+    "project_homepage": "https://etools.unicef.org",
+    "project_icon_url": "https://github.com/unicef/etools-tpm/blob/master/src/assets/images/etools_logo_icon.png"
+}

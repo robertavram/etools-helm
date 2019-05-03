@@ -1,0 +1,80 @@
+# Default values for etools.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# environment to be deployed
+targetEnvironment: develop
+entryCommand:  
+  - "node" 
+  - "express.js"
+entrypoint: 
+
+image:
+  repository: unicef/etools-ap
+  pullPolicy: IfNotPresent
+  customImageTag: 
+
+# By each environment provide defaults
+environments:
+  develop:
+    imageTag: develop
+    pullPolicy: Always
+    replicaCount: 1
+    configMaps:
+      - defaultetoolsconfig
+    secretRefs:
+      - dbconnection
+      - azureconnection
+  staging:
+    imageTag: staging
+    pullPolicy: Always
+    replicaCount: 1
+  demo:
+    imageTag: demo
+    pullPolicy: Always
+    replicaCount: 1
+  test:
+    imageTag: test
+    pullPolicy: Always
+    replicaCount: 1
+  production:
+    # change this to actual realease numbers
+    imageTag: master
+    pullPolicy: Always
+    replicaCount: 1
+
+nameOverride: "etools-ap"
+fullnameOverride: "etools-ap"
+
+ingress:
+  enabled: false
+
+resources: {
+  "limits": {
+    "cpu": 500m,
+    "memory": 1Gi
+  },
+  "requests": {
+    "cpu": 500m,
+    "memory": 256Mi
+  }
+}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+livenessProbe:
+  initialDelaySeconds: 120
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+readinessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1

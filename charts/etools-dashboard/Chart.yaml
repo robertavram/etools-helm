@@ -1,0 +1,10 @@
+apiVersion: v1
+appVersion: 8.0.0
+description: eTools Dashboard helm chart
+home: https://etools.unicef.org
+name: etools-dashboard
+version: 0.0.1
+maintainers:
+  - name: Robert Avram
+    email: ravram@unicef.org
+icon: https://github.com/unicef/etools-tpm/blob/master/src/assets/images/etools_logo_icon.png
