@@ -4,7 +4,7 @@ dependencies:
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-django.enabled
   - name: etools-pmp
-    version: 0.0.1-b3
+    version: 0.0.1-b4
     repository: "https://etools-charts.storage.googleapis.com/"
     condition: etools-pmp.enabled
   - name: etools-dashboard
