@@ -13,29 +13,28 @@ etools-pmp:
   targetEnvironment: develop
 
 etools-dashboard:
-  enabled: true
+  enabled: false
   targetEnvironment: develop
 
 etools-ap:
-  enabled: true
+  enabled: false
   targetEnvironment: develop
 
 etools-t2f:
-  enabled: true
+  enabled: false
   targetEnvironment: develop
 
 etools-action-points:
-  enabled: true
+  enabled: false
   targetEnvironment: develop
 
 etools-landing:
-  enabled: true
+  enabled: false
   targetEnvironment: develop
 
 etools-tpm:
-  enabled: true
+  enabled: false
   targetEnvironment: develop
 
 redis:
-   enabled: true
-
+   enabled: false
